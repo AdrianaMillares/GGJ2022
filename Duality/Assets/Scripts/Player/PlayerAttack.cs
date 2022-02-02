@@ -60,14 +60,17 @@ public class PlayerAttack : MonoBehaviour
     IEnumerator Damage(Collider2D enemy)
     {
         if(enemy != null){
-            enemy.GetComponent<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            if (enemy != null)
-            {
-                enemy.GetComponent<SpriteRenderer>().color = Color.white;
-                yield return new WaitForSeconds(0.1f);
-            }
-            else{yield break;}
+                for (int i = 0; i < 3; i++)
+                {
+                    enemy.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                    yield return new WaitForSeconds(0.1f);
+                    if (enemy != null)
+                    {
+                        enemy.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                        yield return new WaitForSeconds(0.1f);
+                }
+                else { yield break; }
+                }
         }else{yield break;}
     }
 

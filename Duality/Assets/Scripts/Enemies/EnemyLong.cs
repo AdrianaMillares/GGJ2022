@@ -4,10 +4,6 @@ using System.Collections.Generic;
 
 public class EnemyLong : MonoBehaviour
 {
-    public float speed;
-    public float stoppingDistance;
-    public float retreatDistance;
-
     private float timeBtwShots;
     public float starTimeBtwShots;
 

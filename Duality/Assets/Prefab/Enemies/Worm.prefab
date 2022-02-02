@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 1478129405823882802}
   - component: {fileID: 1478129405823882801}
   - component: {fileID: 1478129405823882830}
-  - component: {fileID: 8763071108877153550}
+  - component: {fileID: 6141715637994124108}
   m_Layer: 6
   m_Name: Worm
   m_TagString: Enemy
@@ -198,9 +198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401268797e97daf40ae4ea3118ed9ac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  stoppingDistance: 10
-  retreatDistance: 15
   starTimeBtwShots: 1.5
   projectile: {fileID: 3365316108638593678, guid: 3d099fa993164e54f84fad669d072ef4,
     type: 3}
@@ -225,7 +222,7 @@ MonoBehaviour:
     type: 3}
   maxCoins: 5
   minCoins: 1
---- !u!114 &8763071108877153550
+--- !u!114 &6141715637994124108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -245,14 +245,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a91c8383c374bb48bd640d26e02b4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackPower: 50
+  knockbackPower: 3
   knockbackDuration: 1
-  shootPoint: {fileID: 0}
-  projectile: {fileID: 0}
-  starTimeBtwShots: 0
-  attackDuration: 0
-  anim: {fileID: 0}
-  starTimeBtwAttacks: 0
+  shootPoint: {fileID: 7558083089690204686}
+  projectile: {fileID: 4491400608503337240, guid: dff75469bd9ae814d8d770e8f288fd4f,
+    type: 3}
+  starTimeBtwShots: 1.5
+  attackDuration: 4
+  anim: {fileID: 3896803966115210924}
+  starTimeBtwAttacks: 10
 --- !u!114 &3896803966115210912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3896803966115210919}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0402b343957513a42aca6da9c016b0f5, type: 3}
   m_Name: 

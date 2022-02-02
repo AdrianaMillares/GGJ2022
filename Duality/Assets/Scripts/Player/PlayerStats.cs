@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Awake()
     {
-        movementSpeed = 13f;
+        movementSpeed = 8f;
         attackDamage = 5f;
         bulletDamage = 5f;
         fireDelay = 1f;

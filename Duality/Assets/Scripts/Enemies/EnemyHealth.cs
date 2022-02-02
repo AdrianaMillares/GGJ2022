@@ -45,11 +45,12 @@ public class EnemyHealth : MonoBehaviour
 
     IEnumerator Damage()
     {
-       for (int i = 0; i < 3; i++){
+       for (int i = 0; i < 3; i++)
+       {
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(0.1f);
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSeconds(0.1f);
-        }
+       }
     }
 }

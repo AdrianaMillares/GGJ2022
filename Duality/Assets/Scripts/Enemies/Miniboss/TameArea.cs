@@ -10,7 +10,7 @@ public class TameArea : MonoBehaviour
 
     public PlayerMovement movement;
     public GameObject choicePanel;
-    public float criticalHealth;
+    private float criticalHealth;
 
     private void Start()
     {

@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour
         instance = this;
     }
 
-    void Start(){
+    void Start()
+    {
         lifeBar = gameObject.GetComponent<Lifebar>();
     }
 
