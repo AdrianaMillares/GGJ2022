@@ -23,6 +23,6 @@ Lost In The Caves presents an adventure where you will meet the habitats of the 
 #### Programmers:
 ```
   * David de la Llave
-  * Oscar Andrade
+  * [Oscar Andrade](https://github.com/Enkoni187)
   * Adriana Millares
 ```
