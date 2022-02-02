@@ -9,20 +9,21 @@ Lost In The Caves presents an adventure where you will meet the habitats of the 
 - Tools And Technologies: Unity v2020.3.26f1
 - Technology Notes: Aseprite, clip studio, Photoshop.
 
+
 ## Credits: 
  
  #### 2D Artists:
-```
+
   * Ana Laura de la Llave
   * Arzhur Drouin
   * Mariana Olguin
   * Mariana Trejo
   * Yordi Romero
-```
+
 
 #### Programmers:
-```
+
   * David de la Llave
   * [Oscar Andrade](https://github.com/Enkoni187)
-  * Adriana Millares
-```
+  * [Adriana Millares](https://github.com/AdrianaMillares)
+
