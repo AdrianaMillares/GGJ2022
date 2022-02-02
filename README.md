@@ -11,8 +11,9 @@ Tools And Technologies: Unity v2020.3.26f1
 Technology Notes: Aseprite, clip studio, Photoshop.
 
 ## Credits: 
-```
+ 
  #### 2D Artists:
+```
   * Ana Laura de la Llave
   * Arzhur Drouin
   * Mariana Olguin
