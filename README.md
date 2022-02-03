@@ -17,7 +17,7 @@ Lost In The Caves presents an adventure where you will meet the habitats of the 
   * Ana Laura de la Llave
   * Arzhur Drouin
   * Mariana Olguin
-  * Mariana Trejo
+  * [Mariana Trejo](https://a01702161.myportfolio.com/)
   * Yordi Romero
 
 
