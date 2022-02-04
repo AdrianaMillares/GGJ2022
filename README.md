@@ -14,10 +14,10 @@ Lost In The Caves presents an adventure where you will meet the habitats of the 
  
  #### 2D Artists:
 
-  * Ana Laura de la Llave
+  * [Ana Laura de la Llave]( https://anakeycas.artstation.com/)
   * Arzhur Drouin
-  * Mariana Olguin
-  * Mariana Trejo
+  * [Mariana Olguin](https://www.artstation.com/marianaoo)
+  * [Mariana Trejo](https://a01702161.myportfolio.com/)
   * Yordi Romero
 
 
