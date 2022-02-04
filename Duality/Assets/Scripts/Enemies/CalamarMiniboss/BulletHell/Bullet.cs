@@ -10,9 +10,6 @@ public class Bullet : MonoBehaviour
     private void OnEnable()
     {
         Invoke("Destroy", 5f);
-        Physics2D.IgnoreLayerCollision(10, 10);
-        Physics2D.IgnoreLayerCollision(10, 9);
-        Physics2D.IgnoreLayerCollision(10, 12);
     }
 
     void Start()

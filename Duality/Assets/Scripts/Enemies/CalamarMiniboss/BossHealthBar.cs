@@ -17,10 +17,19 @@ public class BossHealthBar : MonoBehaviour
     public int maxCoins;
     public int minCoins;
 
+    public bool inCriticalState = false;
+    private float criticalHealth;
+
     private void Start()
     {
-        maxLife = 300f;
+        maxLife = 50f;
         actualLife = maxLife;
+
+        inCriticalState = false;
+
+        criticalHealth = BossHealthBar.actualLife * 0.15f;
+
+        lifeBar.color = Color.red;
     }
 
     void Update()
@@ -45,6 +54,17 @@ public class BossHealthBar : MonoBehaviour
                 Instantiate(lootDrop, transform.position, Quaternion.identity);
             }
             Destroy(boss);
+        }
+
+        if (actualLife <= criticalHealth)
+        {
+            inCriticalState = true;
+        }
+
+        if (inCriticalState == true)
+        {
+            CancelInvoke("Fire");
+            lifeBar.color = Color.yellow;
         }
     }
 

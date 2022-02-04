@@ -46,11 +46,13 @@ public class CreatureManager : MonoBehaviour
         {
             creatureMelee.enabled = true;
             melee.enabled = true;
+            melee.GetComponent<Animator>().SetBool("Death", false);
             anim.runtimeAnimatorController = animatorOverride;
         }
         else
         {
             creatureMelee.enabled = false;
+            melee.GetComponent<Animator>().SetBool("Death", true);
             melee.enabled = false;
             anim.runtimeAnimatorController = animatorController;
         }
@@ -59,6 +61,7 @@ public class CreatureManager : MonoBehaviour
         {
             InArea = false;
             hasCreatureShooter = true;
+            hasCreatureMelee = false;
             creatureShooterInstance = Instantiate(creatureShooterPrefab, player.transform.position, Quaternion.identity);
             Destroy(col.gameObject);
         }
@@ -66,6 +69,7 @@ public class CreatureManager : MonoBehaviour
         {
             InArea = false;
             hasCreatureMelee = true;
+            hasCreatureShooter = false;
             Destroy(col.gameObject);
         }
 
@@ -78,7 +82,8 @@ public class CreatureManager : MonoBehaviour
             creatureShooter.enabled = false;
             if(creatureShooterInstance != null)
             {
-                Destroy(creatureShooterInstance);
+                creatureShooterInstance.GetComponent<Animator>().SetTrigger("Death");
+                Destroy(creatureShooterInstance, 0.5f);
             }
             else
             {

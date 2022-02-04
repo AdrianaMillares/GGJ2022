@@ -44,11 +44,20 @@ public class PlayerAttack : MonoBehaviour
             {
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
                 StartCoroutine(Damage(enemy));
+                if(enemy.GetComponent<EnemyHealth>().health > 0)
+                {
+                    FindObjectOfType<AudioManager>().Play("EnemyDamage");
+                }
+                else if(enemy.GetComponent<EnemyHealth>().health <= 0)
+                {
+                    FindObjectOfType<AudioManager>().Play("Explosion");
+                }
             }
             else if(enemy.gameObject.tag == "Boss")
             {
                 BossHealthBar.actualLife -= PlayerStats.attackDamage;
                 StartCoroutine(Damage(enemy));
+                FindObjectOfType<AudioManager>().Play("EnemyDamage");
             }
             else
             {

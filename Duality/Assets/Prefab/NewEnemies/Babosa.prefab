@@ -166,10 +166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8669cbbdd039c4dafbd2055e41d986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   chaseArea: 8
   damage: 8
-  knockbackPower: 1
+  knockbackPower: 8
   knockbackDuration: 0.2
   anim: {fileID: 5617803778879047552}
 --- !u!114 &5617803778879047556

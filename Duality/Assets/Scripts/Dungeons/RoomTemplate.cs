@@ -15,7 +15,7 @@ public class RoomTemplate : MonoBehaviour
 
     public float waitTime;
     private bool spawnedBoss;
-    public GameObject boss;
+    
     void Update()
     {
 
@@ -25,8 +25,6 @@ public class RoomTemplate : MonoBehaviour
             {
                 if (i == rooms.Count - 1)
                 {
-
-                    Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
                     Instantiate(bossRoom, rooms[i].transform.position, Quaternion.identity);
                     Destroy(rooms[i].gameObject);
                     spawnedBoss = true;

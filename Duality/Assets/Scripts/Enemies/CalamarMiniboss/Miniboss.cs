@@ -12,32 +12,42 @@ public class Miniboss : MonoBehaviour
     private float timeBtwShots;
     public float starTimeBtwShots;
 
-    public float attackDuration;
     public Animator anim;
+    public float attackDuration;
     private float timeBtwAttacks;
     public float starTimeBtwAttacks;
     public LayerMask whatIsBoss;
 
+    public BossHealthBar bossHealthBar;
+
     private void Update()
     {
-        if (timeBtwShots <= 0)
+        if(bossHealthBar.inCriticalState == false)
         {
-            Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
-            timeBtwShots = starTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("Bullet");
+                timeBtwShots = starTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
 
-        if(timeBtwAttacks <= 0)
-        {
-            StartCoroutine(Attack());
-            timeBtwAttacks = starTimeBtwAttacks;
+            if (timeBtwAttacks <= 0)
+            {
+                StartCoroutine(Attack());
+                timeBtwAttacks = starTimeBtwAttacks;
+            }
+            else
+            {
+                timeBtwAttacks -= Time.deltaTime;
+            }
         }
         else
         {
-            timeBtwAttacks -= Time.deltaTime;
+            anim.SetBool("inCriticalState", true);
         }
     }
 
@@ -56,6 +66,7 @@ public class Miniboss : MonoBehaviour
             BossHealthBar.actualLife -= PlayerStats.bulletDamage;
             Destroy(collision.gameObject);
             StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("EnemyDamage");
         }
     }
 

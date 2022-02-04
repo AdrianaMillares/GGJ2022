@@ -9,8 +9,8 @@ public class EnemyFollow : MonoBehaviour
     public float chaseArea;
     public float damage;
 
-    public float knockbackPower = 100f;
-    public float knockbackDuration = 1f;
+    public float knockbackPower;
+    public float knockbackDuration;
 
     private Rigidbody2D rb;
 
@@ -26,9 +26,9 @@ public class EnemyFollow : MonoBehaviour
         enemy = GetComponent<EnemyHealth>();
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-        if(enemy.health > 0)
+        if (enemy.health > 0)
         {
             if (Vector2.Distance(transform.position, target.position) < chaseArea)
             {
@@ -44,10 +44,10 @@ public class EnemyFollow : MonoBehaviour
             anim.SetBool("walking", false);
         }
     }
-    
+
     public void ChasePlayer()
     {
-        Vector3 temp = Vector3.MoveTowards(transform.position, target.position, (speed * 10f) * Time.deltaTime);
+        Vector3 temp = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         rb.MovePosition(temp);
         anim.SetBool("walking", true);
 
@@ -66,7 +66,7 @@ public class EnemyFollow : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

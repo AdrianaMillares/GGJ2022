@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 dashDir;
     float dashSpeed;
+    
+    [HideInInspector]
     public enum State
     {
         Normal,
@@ -30,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public State state;
 
     public Ghost ghost;
+
+    public AudioSource source;
 
     private void Awake()
     {
@@ -63,6 +67,18 @@ public class PlayerMovement : MonoBehaviour
                     anim.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
                 }
 
+                if(rb.velocity.magnitude > 1f)
+                {
+                    if(!source.isPlaying)
+                    {
+                        source.Play();
+                    }
+                }
+                else
+                {
+                    source.Stop();
+                }
+
                 if (Input.GetAxisRaw("Horizontal") > 0)
                 {
                     attackAnchor.localRotation = Quaternion.Euler(0, 0, 90);
@@ -89,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
                     dashDir = normMovement;
                     dashSpeed = PlayerStats.movementSpeed * 10f;
                     state = State.Rolling;
+                    FindObjectOfType<AudioManager>().Play("Dash");
                 }
                 break;
 
@@ -116,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
         switch(state)
         {
             case State.Normal:
-                rb.MovePosition(rb.position + normMovement * movementSpeed * Time.fixedDeltaTime);
+                rb.MovePosition(rb.position + movementSpeed * Time.fixedDeltaTime * normMovement);
 
                 if (!beingKnockedback)
                 {
@@ -139,10 +156,10 @@ public class PlayerMovement : MonoBehaviour
         {
             timer += Time.deltaTime;
         
-            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
-            rb.velocity = direction * knockbackPower;
-            rb.AddForce(-direction * knockbackPower * 20f);
-        
+            Vector2 direction = (obj.transform.position - this.transform.position);
+            rb.velocity = direction * knockbackPower * 100f;
+            rb.AddForce(-rb.velocity);
+
             yield return null;
         }
         beingKnockedback = false;

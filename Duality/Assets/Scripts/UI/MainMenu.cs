@@ -8,23 +8,28 @@ public class MainMenu : MonoBehaviour
     
     public void Play(){
         SceneManager.LoadScene("Room3");
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 
     public void Config(){
         SceneManager.LoadScene("Config", LoadSceneMode.Single);
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 
     public void Menu()
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 
     public void Quit(){
         Application.Quit();
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 
     public void Credits()
     {
         SceneManager.LoadScene("Credits", LoadSceneMode.Single);
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 }

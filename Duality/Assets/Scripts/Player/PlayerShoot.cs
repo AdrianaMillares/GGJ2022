@@ -8,7 +8,6 @@ public class PlayerShoot : MonoBehaviour
     public float bulletSpeed;
     private float lastFire;
     private float fireDelay;
-    
 
     private Transform anchorObj;
     private Transform shootPoint;
@@ -53,6 +52,8 @@ public class PlayerShoot : MonoBehaviour
             Shoot(shootHor, shootVer);
             lastFire = Time.time;
 
+            FindObjectOfType<AudioManager>().Play("Bullet");
+
             if (shootHor != 0 && shootVer != 0)
             {
                 anim.SetFloat("moveX", shootHor);
@@ -62,11 +63,11 @@ public class PlayerShoot : MonoBehaviour
 
         if (anchorObj.transform.position == target.transform.position)
         {
-            anchorObj.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1;
+            anchorObj.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
         }
         else
         {
-            anchorObj.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
+            anchorObj.gameObject.GetComponentInChildren<SpriteRenderer>().sortingOrder = 3;
         }
 
         if (Vector2.Distance(anchorObj.transform.position, target.position) < stoppingDistance)

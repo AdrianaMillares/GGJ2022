@@ -10,7 +10,9 @@ public class TameArea : MonoBehaviour
 
     private PlayerMovement movement;
     public GameObject choicePanel;
-    private float criticalHealth;
+    public GameObject squidItem;
+
+    public BossHealthBar bossHealthBar;
 
     private void Start()
     {
@@ -19,8 +21,6 @@ public class TameArea : MonoBehaviour
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         movement.enabled = true;
-
-        criticalHealth = BossHealthBar.actualLife * 0.25f;
     }
 
     public void Update()
@@ -34,7 +34,7 @@ public class TameArea : MonoBehaviour
             }
         }
 
-        if(BossHealthBar.actualLife <= criticalHealth)
+        if(bossHealthBar.inCriticalState == true)
         {
             col.enabled = true;
         }
@@ -53,14 +53,14 @@ public class TameArea : MonoBehaviour
     public void TameBoss()
     {
         movement.enabled = true;
+        Instantiate(squidItem, transform.position, Quaternion.identity);
         Destroy(boss);
         choicePanel.SetActive(false);
     }
 
     public void KillBoss()
     {
-        movement.enabled = true;
-        Destroy(boss);
         choicePanel.SetActive(false);
+        movement.enabled = true;
     }
 }

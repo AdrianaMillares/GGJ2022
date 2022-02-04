@@ -1,27 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public AudioSource source;
+    public AudioSource music;
     public AudioClip[] clips;
     int currentScene;
 
     private bool isPlaying;
 
+    public Sound[] sounds;
+
     private void Start()
     {
-        source.clip = clips[0];
-        source.Play();
+        music.clip = clips[0];
+        music.Play();
         isPlaying = true;
 
-        source.volume = .4f;
+        music.volume = 1f;
     }
 
-    void Awake()
+    public void Awake()
     {
         if (instance == null)
         {
@@ -29,10 +31,42 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
-        source = GetComponent<AudioSource>();
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
+
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+            s.source.playOnAwake = s.playOnAwake;
+        }
+    }
+
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.Play();
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        s.source.Stop();
     }
 
     void Update()
@@ -40,24 +74,23 @@ public class AudioManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != currentScene)
         {
             currentScene = SceneManager.GetActiveScene().buildIndex;
-            if ((currentScene == 0 || currentScene == 2 || currentScene == 3 || currentScene == 4) && isPlaying == false)
+            if ((currentScene == 0 || currentScene == 2 || currentScene == 4) && isPlaying == false)
             {
-                source.clip = clips[0];
-                source.Play();
+                music.clip = clips[0];
+                music.Play();
                 isPlaying = true;
 
             }
-            else if ((currentScene == 0 || currentScene == 2 || currentScene == 3 || currentScene == 4) && isPlaying == true)
+            else if ((currentScene == 0 || currentScene == 2 || currentScene == 4) && isPlaying == true)
             {
-                source.clip = clips[0];
+                music.clip = clips[0];
             }
-
-            else if (currentScene == 1)
+            else if(currentScene == 1)
             {
                 isPlaying = false;
-                source.Stop();
-                source.clip = clips[1];
-                source.Play();
+                music.Stop();
+                music.clip = clips[1];
+                music.Play();
             }
         }
     }

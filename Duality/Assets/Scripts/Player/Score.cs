@@ -21,9 +21,10 @@ public class Score : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Coin")
+        if(collision.gameObject.tag == "Coin")
         {
             ScoreNum ++;
+            FindObjectOfType<AudioManager>().Play("Coin");
             Destroy(collision.gameObject);
         }
     }

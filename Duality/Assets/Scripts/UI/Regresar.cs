@@ -9,5 +9,6 @@ public class Regresar : MonoBehaviour
     public void Scene1()
     {
         SceneManager.LoadScene("Room3");
+        FindObjectOfType<AudioManager>().Play("Button");
     }
 }

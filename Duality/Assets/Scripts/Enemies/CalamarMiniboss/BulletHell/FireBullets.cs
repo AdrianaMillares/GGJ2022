@@ -10,34 +10,13 @@ public class FireBullets : MonoBehaviour
     [SerializeField]
     private float startAngle = 90f, endAngle = 270f;
 
-    private bool inCriticalState;
-    private float criticalHealth;
-
     public float repeatRate;
     public Transform firePoint;
 
-    void Start()
-    {
-        inCriticalState = false;
-
-        criticalHealth = BossHealthBar.actualLife * 0.25f;
-    }
-
-    public void Update()
-    {
-        if (BossHealthBar.actualLife <= criticalHealth)
-        {
-            inCriticalState = true;
-        }
-
-        if (inCriticalState == true)
-        {
-            CancelInvoke("Fire");
-        }
-    }
-
     private void Fire()
     {
+        FindObjectOfType<AudioManager>().Play("SquidBullet");
+        
         float angleStep = (endAngle - startAngle) / bulletsAmount;
         float angle = startAngle;
 

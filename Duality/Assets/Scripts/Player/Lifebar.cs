@@ -9,6 +9,8 @@ public class Lifebar : MonoBehaviour
     public Image lifeBar;
     private float actualLife;
     private float maxLife;
+    
+    [HideInInspector]
     public bool invincible;
 
     private void Start()
@@ -38,6 +40,7 @@ public class Lifebar : MonoBehaviour
         {
             PlayerStats.actualLife -= col.gameObject.GetComponent<EnemyFollow>().damage;
             StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("Damage");
         }
     }
 
@@ -47,6 +50,7 @@ public class Lifebar : MonoBehaviour
         {
             PlayerStats.actualLife -= 1f;
             StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("Damage");
         }
     }
 

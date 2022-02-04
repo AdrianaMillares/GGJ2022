@@ -7,6 +7,7 @@ public class RoomMove : MonoBehaviour
     public Vector2 cameraChange;
     public Vector3 playerChange;
     private CameraFollow cam;
+    public Animator anim;
 
     private void Start()
     {
@@ -20,6 +21,14 @@ public class RoomMove : MonoBehaviour
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
             collision.transform.position += playerChange;
+
+            anim.SetTrigger("FadeIn");
+            Invoke(nameof(FadeOut), 0f);
         }
+    }
+
+    void FadeOut()
+    {
+        anim.SetTrigger("FadeOut");
     }
 }

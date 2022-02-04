@@ -42,6 +42,14 @@ public class EnemyHealth : MonoBehaviour
             health -= PlayerStats.bulletDamage;
             Destroy(collision.gameObject);
             StartCoroutine(Damage());
+            if(health > 0)
+            {
+                FindObjectOfType<AudioManager>().Play("EnemyDamage");
+            }
+            else if(health <= 0)
+            {
+                FindObjectOfType<AudioManager>().Play("Explosion");
+            }
         }
     }
 
