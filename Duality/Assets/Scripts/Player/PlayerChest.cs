@@ -14,7 +14,6 @@ public class PlayerChest : MonoBehaviour
     private GameObject chest;
     private bool InArea = false;
 
-    static System.Random ran = new System.Random();
     private int powerUpIndex;
     private int powerUpSetIndex;
     private int chestPrice;
@@ -26,18 +25,20 @@ public class PlayerChest : MonoBehaviour
         if (InArea && Input.GetKeyDown(KeyCode.E) && (Score.ScoreNum >= chestPrice))
         {
             InArea = false;
-            for (int i = 0; i < GenerateRnd(); i++)
-            {
-                Instantiate(PowerUpSet[powerUpSetIndex].PowerUp[GenerateRnd()], chest.transform.position, Quaternion.identity);
-            }
+            PickRandomNumber();
+
+            Instantiate(PowerUpSet[powerUpSetIndex].PowerUp[powerUpIndex], chest.transform.position, Quaternion.identity);
+
             Score.ScoreNum -= chestPrice;
             Destroy(chest.gameObject);
         }
     }
 
-    public int GenerateRnd()
+    private void PickRandomNumber()
     {
-        return ran.Next(1, 3);
+        int randomNum = Random.Range(0, 2);
+
+        powerUpIndex = randomNum;
     }
 
     void OnTriggerEnter2D(Collider2D collider) 

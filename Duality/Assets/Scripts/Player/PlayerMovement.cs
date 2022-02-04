@@ -17,66 +17,116 @@ public class PlayerMovement : MonoBehaviour
     public Transform attackAnchor;
 
     public SpriteRenderer melee;
-    private Lifebar lifeBar;
+    private Lifebar lifebar;
+
+    Vector2 dashDir;
+    float dashSpeed;
+    public enum State
+    {
+        Normal,
+        Rolling,
+    }
+
+    public State state;
+
+    public Ghost ghost;
 
     private void Awake()
     {
         instance = this;
-    }
 
-    void Start()
-    {
-        lifeBar = gameObject.GetComponent<Lifebar>();
+        state = State.Normal;
+
+        lifebar = GetComponent<Lifebar>();
     }
 
     private void Update()
     {
-        movementSpeed = PlayerStats.movementSpeed;
-
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        normMovement = movement.normalized;
-
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
-        anim.SetFloat("Speed", movement.sqrMagnitude);
-
-        if (movement.x != 0 || movement.y != 0)
+        switch (state)
         {
-            anim.SetFloat("LastHorizontal", Input.GetAxisRaw("Horizontal"));
-            anim.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
-        }
+            case State.Normal:
 
-        if(Input.GetAxisRaw("Horizontal") > 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 90);
-            melee.sortingOrder = 1;
-        }
-        if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, -90);
-            melee.sortingOrder = 1;
-        }
-        if (Input.GetAxisRaw("Vertical") > 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 180);
-            melee.sortingOrder = 1;
-        }
-        if (Input.GetAxisRaw("Vertical") < 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 0);
-            melee.sortingOrder = 3;
+                movementSpeed = PlayerStats.movementSpeed;
+
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
+
+                normMovement = movement.normalized;
+
+                anim.SetFloat("Horizontal", movement.x);
+                anim.SetFloat("Vertical", movement.y);
+                anim.SetFloat("Speed", movement.sqrMagnitude);
+
+                if (movement.x != 0 || movement.y != 0)
+                {
+                    anim.SetFloat("LastHorizontal", Input.GetAxisRaw("Horizontal"));
+                    anim.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
+                }
+
+                if (Input.GetAxisRaw("Horizontal") > 0)
+                {
+                    attackAnchor.localRotation = Quaternion.Euler(0, 0, 90);
+                    melee.sortingOrder = 1;
+                }
+                if (Input.GetAxisRaw("Horizontal") < 0)
+                {
+                    attackAnchor.localRotation = Quaternion.Euler(0, 0, -90);
+                    melee.sortingOrder = 1;
+                }
+                if (Input.GetAxisRaw("Vertical") > 0)
+                {
+                    attackAnchor.localRotation = Quaternion.Euler(0, 0, 180);
+                    melee.sortingOrder = 1;
+                }
+                if (Input.GetAxisRaw("Vertical") < 0)
+                {
+                    attackAnchor.localRotation = Quaternion.Euler(0, 0, 0);
+                    melee.sortingOrder = 3;
+                }
+
+                if (Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    dashDir = normMovement;
+                    dashSpeed = PlayerStats.movementSpeed * 10f;
+                    state = State.Rolling;
+                }
+                break;
+
+            case State.Rolling:
+
+                lifebar.invincible = true;
+                ghost.makeGhost = true;
+
+                float dashSpeedDropMult = 5f;
+                dashSpeed -= dashSpeed * dashSpeedDropMult * Time.deltaTime;
+
+                float dashSpeedMinimum = 50f;
+                if(dashSpeed < dashSpeedMinimum)
+                {
+                    state = State.Normal;
+                    lifebar.invincible = false;
+                    ghost.makeGhost = false;
+                }
+                break;
         }
     }
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + normMovement * movementSpeed * Time.fixedDeltaTime);
-
-        if (!beingKnockedback) 
+        switch(state)
         {
-            rb.velocity = normMovement * movementSpeed;
+            case State.Normal:
+                rb.MovePosition(rb.position + normMovement * movementSpeed * Time.fixedDeltaTime);
+
+                if (!beingKnockedback)
+                {
+                    rb.velocity = normMovement * movementSpeed;
+                }
+                break;
+
+            case State.Rolling:
+                rb.velocity = dashDir * dashSpeed;
+                break;
         }
     }
 
@@ -91,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
         
             Vector2 direction = (obj.transform.position - this.transform.position).normalized;
             rb.velocity = direction * knockbackPower;
-            rb.AddForce(-direction * knockbackPower * 25);
+            rb.AddForce(-direction * knockbackPower * 20f);
         
             yield return null;
         }

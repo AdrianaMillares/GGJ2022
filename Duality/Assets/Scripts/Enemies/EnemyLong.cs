@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class EnemyLong : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class EnemyLong : MonoBehaviour
 
     public GameObject projectile;
     private Transform player;
-    public float damage;
 
     public Animator anim;
     public Transform shootPoint;

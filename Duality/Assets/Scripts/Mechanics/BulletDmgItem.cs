@@ -1,7 +1,4 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
+using UnityEngine;  
 public class BulletDmgItem : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)

@@ -32,14 +32,18 @@ public class Lifebar : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Enemy") && !invincible)
+        if (col.gameObject.tag == "Enemy" && !invincible)
         {
             PlayerStats.actualLife -= col.gameObject.GetComponent<EnemyFollow>().damage;
             StartCoroutine(Damage());
         }
-        else if (col.gameObject.CompareTag("Bullet") && !invincible)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet") && !invincible)
         {
             PlayerStats.actualLife -= 1f;
             StartCoroutine(Damage());
@@ -48,9 +52,8 @@ public class Lifebar : MonoBehaviour
 
     IEnumerator Damage()
     {
-        yield return new WaitForSeconds(0.1f);
         invincible = true;
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
             this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             yield return new WaitForSeconds(0.1f);
@@ -59,5 +62,4 @@ public class Lifebar : MonoBehaviour
         }
         invincible = false;
     }
-
 }

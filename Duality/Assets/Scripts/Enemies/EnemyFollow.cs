@@ -15,21 +15,29 @@ public class EnemyFollow : MonoBehaviour
     private Rigidbody2D rb;
 
     public Animator anim;
-    private Lifebar lifeBar;
+    private EnemyHealth enemy;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         rb = this.gameObject.GetComponent<Rigidbody2D>();
-        lifeBar = GameObject.FindGameObjectWithTag("Player").GetComponent<Lifebar>();
+        
+        enemy = GetComponent<EnemyHealth>();
     }
 
     void Update()
     {
-        if (Vector2.Distance(transform.position, target.position) < chaseArea)
+        if(enemy.health > 0)
         {
-            ChasePlayer();
+            if (Vector2.Distance(transform.position, target.position) < chaseArea)
+            {
+                ChasePlayer();
+            }
+            else
+            {
+                anim.SetBool("walking", false);
+            }
         }
         else
         {
@@ -60,7 +68,7 @@ public class EnemyFollow : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !lifeBar.invincible)
+        if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(PlayerMovement.instance.Knockback(knockbackDuration, knockbackPower, this.transform));
         }

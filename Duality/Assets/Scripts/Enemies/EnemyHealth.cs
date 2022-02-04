@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
@@ -11,15 +10,18 @@ public class EnemyHealth : MonoBehaviour
     public int maxCoins;
     public int minCoins;
 
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     public void Update()
     {
         if (health <= 0)
         {
-            Destroy(this.gameObject);
-            for(int i = 0; i < GenerateRnd(); i++) 
-            { 
-                Instantiate(lootDrop, transform.position, Quaternion.identity);
-            }
+            StartCoroutine(HandleDeath());
         }
     }
      
@@ -52,5 +54,17 @@ public class EnemyHealth : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSeconds(0.1f);
        }
+    }
+
+    IEnumerator HandleDeath()
+    {
+        anim.SetBool("death", true);
+        yield return new WaitForSeconds(0.6f);
+
+        Destroy(this.gameObject);
+        for (int i = 0; i < GenerateRnd(); i++)
+        {
+            Instantiate(lootDrop, transform.position, Quaternion.identity);
+        }
     }
 }
