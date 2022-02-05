@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6856472709288967481}
   - component: {fileID: 6856472709288967486}
   m_Layer: 0
-  m_Name: bossRoom
+  m_Name: bossRoomTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,5 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209943964e59768468f444af69f09c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 274825091940526852, guid: f9855a665cdfa5741bbc734506789a78,
-    type: 3}
+  bossPrefab:
+  - {fileID: 274825091940526852, guid: f9855a665cdfa5741bbc734506789a78, type: 3}
+  - {fileID: 5617803778879047559, guid: a4e10a97e25de734aac86e2204817503, type: 3}
+  - {fileID: 741510877977947257, guid: 8230699c6264bd340bef0841a4110e78, type: 3}

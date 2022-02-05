@@ -14,10 +14,13 @@ public class BossHealthBar : MonoBehaviour
 
     static System.Random ran = new System.Random();
     public GameObject lootDrop;
+    public GameObject floorChange;
     public int maxCoins;
     public int minCoins;
 
+    [HideInInspector]
     public bool inCriticalState = false;
+    
     private float criticalHealth;
 
     private void Start()
@@ -49,6 +52,7 @@ public class BossHealthBar : MonoBehaviour
 
         if (actualLife <= 0)
         {
+            Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
             for (int i = 0; i < GenerateRnd(); i++)
             {
                 Instantiate(lootDrop, transform.position, Quaternion.identity);

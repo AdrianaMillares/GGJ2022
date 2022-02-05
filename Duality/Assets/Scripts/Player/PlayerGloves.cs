@@ -2,78 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMidAttack : MonoBehaviour
+public class PlayerGloves : MonoBehaviour
 {
-    public Transform attackAnchor;
-    public Transform attackPos, p1;
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
     public float attackRange;
     private float attackDamage;
-    public LayerMask whatIsEnemies;
 
     private float timeBtwAttacks;
     public float starTimeBtwAttacks;
 
-    private void Update()
+    //public Animator anim;
+
+    void Update()
     {
         attackDamage = PlayerStats.attackDamage;
 
-        if (Input.GetAxis("ShootHorizontal") > 0)
+        if (timeBtwAttacks <= 0)
         {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 90);
-            if (timeBtwAttacks <= 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Attack();
                 timeBtwAttacks = starTimeBtwAttacks;
-            }
-            else
-            {
-                timeBtwAttacks -= Time.deltaTime;
             }
         }
-        if (Input.GetAxis("ShootHorizontal") < 0)
+        else
         {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, -90);
-            if (timeBtwAttacks <= 0)
-            {
-                Attack();
-                timeBtwAttacks = starTimeBtwAttacks;
-            }
-            else
-            {
-                timeBtwAttacks -= Time.deltaTime;
-            }
-        }
-        if (Input.GetAxis("ShootVertical") > 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 180);
-            if (timeBtwAttacks <= 0)
-            {
-                Attack();
-                timeBtwAttacks = starTimeBtwAttacks;
-            }
-            else
-            {
-                timeBtwAttacks -= Time.deltaTime;
-            }
-        }
-        if (Input.GetAxis("ShootVertical") < 0)
-        {
-            attackAnchor.localRotation = Quaternion.Euler(0, 0, 0);
-            if (timeBtwAttacks <= 0)
-            {
-                Attack();
-                timeBtwAttacks = starTimeBtwAttacks;
-            }
-            else
-            {
-                timeBtwAttacks -= Time.deltaTime;
-            }
+            timeBtwAttacks -= Time.deltaTime;
         }
     }
 
     void Attack()
     {
-        Collider2D[] enemiesToDamage = Physics2D.OverlapAreaAll(attackPos.position, p1.position, whatIsEnemies);
+        //anim.SetTrigger("Attack");
+
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         foreach (Collider2D enemy in enemiesToDamage)
         {
             if (enemy.gameObject.tag == "Enemy")
@@ -123,7 +86,7 @@ public class PlayerMidAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(attackPos.position, p1.position);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }

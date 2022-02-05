@@ -5,13 +5,13 @@ using UnityEngine;
 public class BossRoom : MonoBehaviour
 {
     private bool inArea = false;
-    public GameObject bossPrefab;
+    public GameObject[] bossPrefab;
     
     private void Update()
     {
         if( inArea == true)
         {
-            Instantiate(bossPrefab, transform.position, Quaternion.identity);
+            Instantiate(bossPrefab[PlayerStats.instance.bossIndex], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

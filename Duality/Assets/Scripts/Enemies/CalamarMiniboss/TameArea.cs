@@ -11,6 +11,7 @@ public class TameArea : MonoBehaviour
     private PlayerMovement movement;
     public GameObject choicePanel;
     public GameObject squidItem;
+    public GameObject floorChange;
 
     public BossHealthBar bossHealthBar;
 
@@ -53,6 +54,7 @@ public class TameArea : MonoBehaviour
     public void TameBoss()
     {
         movement.enabled = true;
+        Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
         Instantiate(squidItem, transform.position, Quaternion.identity);
         Destroy(boss);
         choicePanel.SetActive(false);
@@ -60,6 +62,7 @@ public class TameArea : MonoBehaviour
 
     public void KillBoss()
     {
+        Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
         choicePanel.SetActive(false);
         movement.enabled = true;
     }

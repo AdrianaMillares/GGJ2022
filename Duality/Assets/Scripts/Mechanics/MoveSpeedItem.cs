@@ -6,7 +6,8 @@ public class MoveSpeedItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerStats.movementSpeed += 5f;
+            FindObjectOfType<AudioManager>().Play("Item");
+            PlayerStats.movementSpeed += 0.4f;
             Destroy(this.gameObject);
         }
     }

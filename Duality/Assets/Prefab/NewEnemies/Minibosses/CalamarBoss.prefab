@@ -171,8 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a91c8383c374bb48bd640d26e02b4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackPower: 0.5
-  knockbackDuration: 1
   shootPoint: {fileID: 6712564658940991405}
   projectile: {fileID: 4491400608503337240, guid: dff75469bd9ae814d8d770e8f288fd4f,
     type: 3}
@@ -275,6 +273,8 @@ MonoBehaviour:
   boss: {fileID: 274825091940526852}
   choicePanel: {fileID: 7284162449090814909}
   squidItem: {fileID: 770409802145428911, guid: 163def6534d2c644f88e3601d7e2a238,
+    type: 3}
+  floorChange: {fileID: 4442621378311560268, guid: b23d6201a4b14e34b89d8297d5f9846d,
     type: 3}
   bossHealthBar: {fileID: 274825092891899308}
 --- !u!1 &274825092873142782
@@ -396,6 +396,8 @@ MonoBehaviour:
   blackLifeBar: {fileID: 4371352790339047399}
   boss: {fileID: 274825091940526852}
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
+    type: 3}
+  floorChange: {fileID: 4442621378311560268, guid: b23d6201a4b14e34b89d8297d5f9846d,
     type: 3}
   maxCoins: 5
   minCoins: 1

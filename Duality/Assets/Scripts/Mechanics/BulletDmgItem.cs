@@ -5,8 +5,9 @@ public class BulletDmgItem : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            PlayerStats.bulletDamage += 1f;
-            PlayerStats.attackDamage += 1f;
+            FindObjectOfType<AudioManager>().Play("Item");
+            PlayerStats.bulletDamage += 0.5f;
+            PlayerStats.attackDamage += 0.5f;
             Destroy(this.gameObject);
         }
     }

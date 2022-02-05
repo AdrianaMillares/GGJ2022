@@ -10,8 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement, normMovement;
 
     public Rigidbody2D rb;
-    bool beingKnockedback = false;
-
+    
     public Animator anim;
 
     public Transform attackAnchor;
@@ -37,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float knockbackPower;
     public float knockbackDuration;
+    bool beingKnockedback = false;
 
     private void Awake()
     {
@@ -150,15 +150,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (col.gameObject.CompareTag("Enemy"))
         {
             StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
         }
     }
 
-    public IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
+    IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
     {
         float timer = 0;
         beingKnockedback = true;
@@ -166,12 +166,12 @@ public class PlayerMovement : MonoBehaviour
         while (timer < knockbackDuration)
         {
             timer += Time.deltaTime;
-        
-            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
-            rb.velocity = direction * knockbackPower;
-            rb.AddForce(-direction * knockbackPower * 5f);
 
-            yield return null;
+            Vector2 direction = obj.transform.position - this.transform.position;
+            direction = direction.normalized * knockbackPower;
+            rb.AddForce(5f * knockbackPower * -direction);
+
+            yield return 0;
         }
         beingKnockedback = false;
     }

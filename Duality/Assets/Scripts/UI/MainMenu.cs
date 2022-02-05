@@ -3,11 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //[SerializeField] DungeonManager dungeon;
-    
-    public void Play(){
-        SceneManager.LoadScene("1");
+    public void Play()
+    {
+        PlayerStats.instance.bossIndex = 0;
+        PlayerStats.movementSpeed = 8f;
+        PlayerStats.attackDamage = 4.1f;
+        PlayerStats.bulletDamage = 4.1f;
+        PlayerStats.fireDelay = 1f;
+        PlayerStats.maxLife = 100f;
+        PlayerStats.actualLife = PlayerStats.maxLife;
+        PlayerStats.hasCreatureShooter = false;
+        PlayerStats.hasCreatureMelee = false;
+        PlayerStats.hasCreatureMid = false;
+        PlayerStats.hasCreatureGloves = false;
+
+        SceneManager.LoadScene("Room3");
         FindObjectOfType<AudioManager>().Play("Button");
     }
 

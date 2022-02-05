@@ -5,6 +5,7 @@ public class MaxHealthItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Item");
             PlayerStats.maxLife += 25f;
             Destroy(this.gameObject);
         }

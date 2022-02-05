@@ -6,7 +6,8 @@ public class ReduceFireDelay : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerStats.fireDelay -= 0.5f;
+            FindObjectOfType<AudioManager>().Play("Item");
+            PlayerStats.fireDelay -= 0.2f;
             Destroy(this.gameObject);
         }
     }

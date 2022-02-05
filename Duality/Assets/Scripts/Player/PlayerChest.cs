@@ -12,18 +12,26 @@ public struct PowerUpStruct
 public class PlayerChest : MonoBehaviour
 {
     private GameObject chest;
-    private bool InArea = false;
+    private bool InArea;
 
     private int powerUpIndex;
     private int powerUpSetIndex;
     private int chestPrice;
 
+    public Animator anim;
+
     public PowerUpStruct[] PowerUpSet = new PowerUpStruct[3];
+
+    private void Start()
+    {
+        InArea = false;
+    }
 
     void Update()
     {
         if (InArea && Input.GetKeyDown(KeyCode.E) && (Score.ScoreNum >= chestPrice))
         {
+            FindObjectOfType<AudioManager>().Play("Chest");
             InArea = false;
             PickRandomNumber();
 
@@ -31,6 +39,11 @@ public class PlayerChest : MonoBehaviour
 
             Score.ScoreNum -= chestPrice;
             Destroy(chest.gameObject);
+        }
+        else if(InArea && Input.GetKeyDown(KeyCode.E) && (Score.ScoreNum < chestPrice))
+        {
+            FindObjectOfType<AudioManager>().Play("Locked");
+            anim.SetTrigger("Locked");
         }
     }
 
@@ -66,5 +79,10 @@ public class PlayerChest : MonoBehaviour
             powerUpSetIndex = 2;
             chestPrice = 200;
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        InArea = false;
     }
 }
