@@ -9,9 +9,6 @@ public class EnemyFollow : MonoBehaviour
     public float chaseArea;
     public float damage;
 
-    public float knockbackPower;
-    public float knockbackDuration;
-
     private Rigidbody2D rb;
 
     public Animator anim;
@@ -63,14 +60,6 @@ public class EnemyFollow : MonoBehaviour
         else if( direction.x < 0)
         {
             anim.SetFloat("moveX", -1f);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            StartCoroutine(PlayerMovement.instance.Knockback(knockbackDuration, knockbackPower, this.transform));
         }
     }
 

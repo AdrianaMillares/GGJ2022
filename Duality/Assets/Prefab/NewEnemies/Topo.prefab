@@ -169,7 +169,7 @@ MonoBehaviour:
   speed: 1
   chaseArea: 8
   damage: 8
-  knockbackPower: 25
+  knockbackPower: 1
   knockbackDuration: 0.2
   anim: {fileID: 8250768936429690325}
 --- !u!114 &8250768936429690321

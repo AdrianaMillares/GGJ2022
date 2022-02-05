@@ -30,16 +30,16 @@ public class PlayerShoot : MonoBehaviour
         anim = GameObject.Find("Squiddy(Clone)").GetComponent<Animator>();
 
         rb = GameObject.Find("Squiddy(Clone)").GetComponent<Rigidbody2D>();
+
+        speed = PlayerStats.movementSpeed - 2f;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         fireDelay = PlayerStats.fireDelay;
 
         anchorObj = GameObject.Find("Squiddy(Clone)").GetComponent<Transform>();
         shootPoint = GameObject.Find("ShootPoint").GetComponent<Transform>();
-
-        speed = PlayerStats.movementSpeed + 30f;
 
         float shootHor = Input.GetAxis("ShootHorizontal");
         float shootVer = Input.GetAxis("ShootVertical");

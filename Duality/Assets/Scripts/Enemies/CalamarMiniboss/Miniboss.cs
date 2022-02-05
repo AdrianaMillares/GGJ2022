@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Miniboss : MonoBehaviour
 {
-    public float knockbackPower = 100f;
-    public float knockbackDuration = 1f;
-
     public Transform shootPoint;
     public GameObject projectile;
     private float timeBtwShots;
@@ -48,14 +45,6 @@ public class Miniboss : MonoBehaviour
         else
         {
             anim.SetBool("inCriticalState", true);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            StartCoroutine(PlayerMovement.instance.Knockback(knockbackDuration, knockbackPower, this.transform));
         }
     }
 

@@ -29,6 +29,30 @@ TextureImporter:
   - first:
       213: -4097739238923232330
     second: BolaHongoS-Sheet_8
+  - first:
+      213: -615910272881663275
+    second: BolaHongo_0
+  - first:
+      213: -8725935645865893926
+    second: BolaHongo_1
+  - first:
+      213: 4666613988111031513
+    second: BolaHongo_2
+  - first:
+      213: 1545834064409170274
+    second: BolaHongo_3
+  - first:
+      213: -7728045690017787673
+    second: BolaHongo_4
+  - first:
+      213: 5104303070575776364
+    second: BolaHongo_5
+  - first:
+      213: -7577159522355303379
+    second: BolaHongo_6
+  - first:
+      213: -2836328177756664157
+    second: BolaHongo_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,7 +83,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -95,7 +119,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +131,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,7 +142,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_0
+      name: BolaHongo_0
       rect:
         serializedVersion: 2
         x: 0
@@ -132,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fcd65e92d0e2fad0800000000000000
-      internalID: -2669824433873036041
+      spriteID: 5d2ef5bbed8d377f0800000000000000
+      internalID: -615910272881663275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_1
+      name: BolaHongo_1
       rect:
         serializedVersion: 2
         x: 250
@@ -153,14 +177,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b6c9b2080b6f3e0800000000000000
-      internalID: -2020233318295114905
+      spriteID: adf9e3713cf37e680800000000000000
+      internalID: -8725935645865893926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_2
+      name: BolaHongo_2
       rect:
         serializedVersion: 2
         x: 500
@@ -174,14 +198,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d17f7d78a4acb0e0800000000000000
-      internalID: -2252744670025125420
+      spriteID: 9dc1a3982b423c040800000000000000
+      internalID: 4666613988111031513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_3
+      name: BolaHongo_3
       rect:
         serializedVersion: 2
         x: 750
@@ -195,14 +219,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dee3295890f6c2340800000000000000
-      internalID: 4840365786202783469
+      spriteID: 2619ec234e7e37510800000000000000
+      internalID: 1545834064409170274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_4
+      name: BolaHongo_4
       rect:
         serializedVersion: 2
         x: 1000
@@ -216,14 +240,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bfad15190b22c2f0800000000000000
-      internalID: -954152853040156744
+      spriteID: 7e0508ec36770c490800000000000000
+      internalID: -7728045690017787673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_5
+      name: BolaHongo_5
       rect:
         serializedVersion: 2
         x: 1250
@@ -237,14 +261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd496193953a61ea0800000000000000
-      internalID: -5902350658017258276
+      spriteID: c62da93599026d640800000000000000
+      internalID: 5104303070575776364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_6
+      name: BolaHongo_6
       rect:
         serializedVersion: 2
         x: 1500
@@ -258,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5552d69c7e3ad51e0800000000000000
-      internalID: -2207428026429528747
+      spriteID: d2c2b875f8588d690800000000000000
+      internalID: -7577159522355303379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BolaHongoS-Sheet_7
+      name: BolaHongo_7
       rect:
         serializedVersion: 2
         x: 1750
@@ -279,8 +303,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acc1fa37e1a399e60800000000000000
-      internalID: 7969464918073089226
+      spriteID: 3ae0262cc8653a8d0800000000000000
+      internalID: -2836328177756664157
       vertices: []
       indices: 
       edges: []
@@ -294,7 +318,9 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 165166fe9515a554d94380ab8f625805, type: 3}
+      name: _Emission
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -16,19 +16,20 @@ public class RoomMove : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        //anim.ResetTrigger("FadeIn");
+        if (collision.gameObject.tag == "Player")
         {
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
             collision.transform.position += playerChange;
 
-            anim.SetTrigger("FadeIn");
+            anim.SetTrigger("FadeOut");
             Invoke(nameof(FadeOut), 0f);
-        }
+        } 
     }
 
     void FadeOut()
     {
-        anim.SetTrigger("FadeOut");
+        anim.SetTrigger("FadeIn");
     }
 }

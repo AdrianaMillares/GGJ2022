@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     //[SerializeField] DungeonManager dungeon;
     
     public void Play(){
-        SceneManager.LoadScene("Room3");
+        SceneManager.LoadScene("1");
         FindObjectOfType<AudioManager>().Play("Button");
     }
 

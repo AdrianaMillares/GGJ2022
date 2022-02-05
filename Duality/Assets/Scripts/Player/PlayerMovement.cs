@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource source;
 
+    public float knockbackPower;
+    public float knockbackDuration;
+
     private void Awake()
     {
         instance = this;
@@ -147,6 +150,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
+        }
+    }
+
     public IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
     {
         float timer = 0;
@@ -156,9 +167,9 @@ public class PlayerMovement : MonoBehaviour
         {
             timer += Time.deltaTime;
         
-            Vector2 direction = (obj.transform.position - this.transform.position);
-            rb.velocity = direction * knockbackPower * 100f;
-            rb.AddForce(-rb.velocity);
+            Vector2 direction = (obj.transform.position - this.transform.position).normalized;
+            rb.velocity = direction * knockbackPower;
+            rb.AddForce(-direction * knockbackPower * 5f);
 
             yield return null;
         }
