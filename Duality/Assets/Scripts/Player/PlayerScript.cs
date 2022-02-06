@@ -5,6 +5,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject pauseCanvas;
     public PlayerMovement playerMovement;
     bool isPaused;
+    public Animator anim;
 
     private void Start()
     {
@@ -32,6 +33,15 @@ public class PlayerScript : MonoBehaviour
             pauseCanvas.SetActive(false);
             isPaused = false;
             playerMovement.enabled = true;
+        }
+
+        if(Input.GetKey(KeyCode.Tab))
+        {
+            anim.SetBool("Pressed", true);
+        }
+        else
+        {
+            anim.SetBool("Pressed", false);
         }
     }
 

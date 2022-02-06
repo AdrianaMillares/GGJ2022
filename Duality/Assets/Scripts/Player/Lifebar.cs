@@ -42,6 +42,12 @@ public class Lifebar : MonoBehaviour
             StartCoroutine(Damage());
             FindObjectOfType<AudioManager>().Play("Damage");
         }
+        else if (col.gameObject.tag == "Enemy2" && !invincible)
+        {
+            PlayerStats.actualLife -= col.gameObject.GetComponent<EnemyRetreat>().damage;
+            StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("Damage");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
         PlayerStats.hasCreatureMelee = false;
         PlayerStats.hasCreatureMid = false;
         PlayerStats.hasCreatureGloves = false;
+        PlayerStats.ScoreNum = 0;
 
         SceneManager.LoadScene("Room3");
         FindObjectOfType<AudioManager>().Play("Button");

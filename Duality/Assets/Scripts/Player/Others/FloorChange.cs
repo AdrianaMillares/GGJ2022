@@ -11,14 +11,28 @@ public class FloorChange : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            PlayerStats.instance.bossIndex++;
-            anim.SetTrigger("FadeOut");
-            Invoke(nameof(LoadScene), 1f);
+            if(PlayerStats.instance.bossIndex != 2)
+            {
+                PlayerStats.instance.bossIndex++;
+                anim.SetTrigger("FadeOut");
+                Invoke(nameof(LoadScene), 1f);
+            }
+            else if(PlayerStats.instance.bossIndex == 2)
+            {
+                PlayerStats.instance.bossIndex++;
+                anim.SetTrigger("FadeOut");
+                Invoke(nameof(LoadScene2), 1f);
+            }
         }
     }
 
     void LoadScene()
     {
         SceneManager.LoadScene("Room3");
+    }
+
+    void LoadScene2()
+    {
+        SceneManager.LoadScene("Room4");
     }
 }

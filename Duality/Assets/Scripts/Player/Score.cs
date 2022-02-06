@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
 
     void Start()
     {
-        ScoreNum = 0;
+        ScoreNum = PlayerStats.ScoreNum;
         score.text = ScoreNum.ToString();
     }
 
@@ -23,7 +23,7 @@ public class Score : MonoBehaviour
     {
         if(collision.gameObject.tag == "Coin")
         {
-            ScoreNum ++;
+            ScoreNum++;
             FindObjectOfType<AudioManager>().Play("Coin");
             Destroy(collision.gameObject);
         }

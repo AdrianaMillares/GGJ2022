@@ -51,14 +51,12 @@ public class CreatureManager : MonoBehaviour
             creatureMelee.enabled = true;
             melee.enabled = true;
             melee.GetComponent<Animator>().SetBool("Death", false);
-            anim.runtimeAnimatorController = animatorOverride;
         }
         else
         {
             creatureMelee.enabled = false;
             melee.GetComponent<Animator>().SetBool("Death", true);
             melee.enabled = false;
-            anim.runtimeAnimatorController = animatorController;
         }
 
         if(PlayerStats.hasCreatureMid == true)
@@ -73,10 +71,12 @@ public class CreatureManager : MonoBehaviour
         if (PlayerStats.hasCreatureGloves == true)
         {
             creatureGloves.enabled = true;
+            anim.runtimeAnimatorController = animatorOverride;
         }
         else
         {
             creatureGloves.enabled = false;
+            anim.runtimeAnimatorController = animatorController;
         }
 
         if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 1)

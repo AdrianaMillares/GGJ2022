@@ -40,7 +40,7 @@ public class PlayerAttack : MonoBehaviour
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         foreach (Collider2D enemy in enemiesToDamage)
         {
-            if(enemy.gameObject.tag == "Enemy")
+            if(enemy.gameObject.tag == "Enemy" || enemy.gameObject.tag == "Enemy2")
             {
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
                 StartCoroutine(Damage(enemy));

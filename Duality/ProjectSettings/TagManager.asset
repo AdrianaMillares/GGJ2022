@@ -19,6 +19,7 @@ TagManager:
   - Camera
   - CreatureMid
   - CreatureGloves
+  - Enemy2
   layers:
   - Default
   - TransparentFX

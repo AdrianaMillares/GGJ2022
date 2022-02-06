@@ -12,7 +12,8 @@ public class PlayerStats : MonoBehaviour
     public static float fireDelay;
     public static float actualLife;
     public static float maxLife;
-    public int bossIndex = 0;
+    public static int ScoreNum;
+    public int bossIndex;
 
     public static bool hasCreatureShooter;
     public static bool hasCreatureMelee;
@@ -27,6 +28,8 @@ public class PlayerStats : MonoBehaviour
         fireDelay = 1f;
         maxLife = 100f;
         actualLife = maxLife;
+        ScoreNum = 0;
+        bossIndex = 0;
 
         hasCreatureShooter = false;
         hasCreatureMelee = false;
