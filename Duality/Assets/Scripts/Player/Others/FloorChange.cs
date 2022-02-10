@@ -17,7 +17,7 @@ public class FloorChange : MonoBehaviour
                 anim.SetTrigger("FadeOut");
                 Invoke(nameof(LoadScene), 1f);
             }
-            else if(PlayerStats.instance.bossIndex == 2)
+            else if (PlayerStats.instance.bossIndex == 2)
             {
                 PlayerStats.instance.bossIndex++;
                 anim.SetTrigger("FadeOut");

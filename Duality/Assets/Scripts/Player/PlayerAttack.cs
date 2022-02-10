@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -53,9 +51,11 @@ public class PlayerAttack : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Explosion");
                 }
             }
-            else if(enemy.gameObject.tag == "Boss")
+            else if(enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3")
             {
                 BossHealthBar.actualLife -= PlayerStats.attackDamage;
+                PanteraBossHealthBar.actualLife -= PlayerStats.attackDamage;
+                SlimeBossHealthBar.actualLife -= PlayerStats.attackDamage;
                 StartCoroutine(Damage(enemy));
                 FindObjectOfType<AudioManager>().Play("EnemyDamage");
             }

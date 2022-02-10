@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -156,9 +155,13 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
         }
+        else if(col.gameObject.CompareTag("Boss") && lifebar.invincible == false)
+        {
+            StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
+        }
     }
 
-    IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
+    public IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)
     {
         float timer = 0;
         beingKnockedback = true;

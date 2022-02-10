@@ -27,7 +27,7 @@ public class EnemyLong : MonoBehaviour
         {
             if (timeBtwShots <= 0)
             {
-                Instantiate(projectile, shootPoint.transform.position, Quaternion.identity);
+                anim.SetTrigger("attack");
                 timeBtwShots = starTimeBtwShots;
             }
             else
@@ -35,6 +35,11 @@ public class EnemyLong : MonoBehaviour
                 timeBtwShots -= Time.deltaTime;
             }
         }
+    }
+
+    public void Shoot()
+    {
+        Instantiate(projectile, transform.position, Quaternion.identity);
     }
 
     void OnDrawGizmosSelected()

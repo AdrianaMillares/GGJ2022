@@ -20,6 +20,11 @@ TagManager:
   - CreatureMid
   - CreatureGloves
   - Enemy2
+  - VoidDebug
+  - BossRoom
+  - Spawn
+  - Boss2
+  - Boss3
   layers:
   - Default
   - TransparentFX
@@ -29,7 +34,7 @@ TagManager:
   - UI
   - Enemy
   - Boss
-  - 
+  - Player
   - 
   - 
   - 

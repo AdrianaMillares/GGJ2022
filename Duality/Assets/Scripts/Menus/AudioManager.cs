@@ -1,4 +1,3 @@
-using UnityEngine.Audio;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -90,6 +89,20 @@ public class AudioManager : MonoBehaviour
                 isPlaying = false;
                 music.Stop();
                 music.clip = clips[1];
+                music.Play();
+            }
+            else if (currentScene == 3)
+            {
+                isPlaying = false;
+                music.Stop();
+                music.clip = clips[3];
+                music.Play();
+            }
+            else if (currentScene == 5)
+            {
+                isPlaying = false;
+                music.Stop();
+                music.clip = clips[2];
                 music.Play();
             }
         }

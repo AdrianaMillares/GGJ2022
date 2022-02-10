@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.020448923, y: 0.54}
+  m_Offset: {x: -0.020448923, y: 0.3964922}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.026658, y: 0.70887065}
+  m_Size: {x: 1.026658, y: 0.9958864}
   m_EdgeRadius: 0
 --- !u!114 &7711329103701170893
 MonoBehaviour:
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8669cbbdd039c4dafbd2055e41d986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 2.5
   chaseArea: 8
   damage: 8
   anim: {fileID: 7711329103701170894}
@@ -185,5 +185,5 @@ MonoBehaviour:
   health: 15
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
     type: 3}
-  maxCoins: 3
+  maxCoins: 2
   minCoins: 1

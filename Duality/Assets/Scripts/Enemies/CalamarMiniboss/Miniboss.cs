@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Miniboss : MonoBehaviour
@@ -14,6 +13,7 @@ public class Miniboss : MonoBehaviour
     private float timeBtwAttacks;
     public float starTimeBtwAttacks;
     public LayerMask whatIsBoss;
+    public float damage;
 
     public BossHealthBar bossHealthBar;
 

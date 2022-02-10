@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TameArea : MonoBehaviour
@@ -43,18 +41,24 @@ public class TameArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        inArea = true;
+        if (collision.gameObject.tag == "Player")
+        {
+            inArea = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        inArea = false;
+        if (collision.gameObject.tag == "Player")
+        {
+            inArea = false;
+        }
     }
 
     public void TameBoss()
     {
         movement.enabled = true;
-        Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
+        Instantiate(floorChange, GameObject.FindGameObjectWithTag("BossRoom").transform.position, Quaternion.identity);
         Instantiate(squidItem, transform.position, Quaternion.identity);
         Destroy(boss);
         choicePanel.SetActive(false);
@@ -62,7 +66,6 @@ public class TameArea : MonoBehaviour
 
     public void KillBoss()
     {
-        Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
         choicePanel.SetActive(false);
         movement.enabled = true;
     }

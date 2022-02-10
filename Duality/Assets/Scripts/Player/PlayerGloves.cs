@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGloves : MonoBehaviour
@@ -52,9 +51,11 @@ public class PlayerGloves : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Explosion");
                 }
             }
-            else if (enemy.gameObject.tag == "Boss")
+            else if (enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3")
             {
                 BossHealthBar.actualLife -= PlayerStats.attackDamage;
+                PanteraBossHealthBar.actualLife -= PlayerStats.attackDamage;
+                SlimeBossHealthBar.actualLife -= PlayerStats.attackDamage;
                 StartCoroutine(Damage(enemy));
                 FindObjectOfType<AudioManager>().Play("EnemyDamage");
             }

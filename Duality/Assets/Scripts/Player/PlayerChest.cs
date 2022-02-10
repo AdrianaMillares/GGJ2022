@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 [System.Serializable]
 
@@ -37,7 +35,7 @@ public class PlayerChest : MonoBehaviour
 
             Instantiate(PowerUpSet[powerUpSetIndex].PowerUp[powerUpIndex], chest.transform.position, Quaternion.identity);
 
-            Score.ScoreNum -= chestPrice;
+            PlayerStats.ScoreNum -= chestPrice;
             Destroy(chest.gameObject);
         }
         else if(InArea && Input.GetKeyDown(KeyCode.E) && (Score.ScoreNum < chestPrice))

@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class RoomMove : MonoBehaviour
 {
-    public Vector2 cameraChange;
+    //public Vector2 cameraChange;
     public Vector3 playerChange;
     private Transform squiddy;
-    private CameraFollow cam;
+    //private CameraFollow cam;
     public Animator anim;
 
-    private void Start()
-    {
-        cam = GameObject.FindGameObjectWithTag("Camera").GetComponent<CameraFollow>();
-    }
+    //private void Start()
+    //{
+    //    cam = GameObject.FindGameObjectWithTag("Camera").GetComponent<CameraFollow>();
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            cam.minPosition += cameraChange;
-            cam.maxPosition += cameraChange;
+            //cam.minPosition += cameraChange;
+            //cam.maxPosition += cameraChange;
             collision.transform.position += playerChange;
 
             if(PlayerStats.hasCreatureShooter == true)

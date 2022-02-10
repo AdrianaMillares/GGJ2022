@@ -632,6 +632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dedf32180adea5c47a9ef3286503807f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EscenaPlay: 5
 --- !u!114 &1507258238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -843,6 +844,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: b6548c4f03862604aa9561fd4b006878, type: 3}
   - {fileID: 8300000, guid: b6fc6fdb719622445b7b95700d2e6902, type: 3}
+  - {fileID: 8300000, guid: 8f3965b584235fb48a00b64555e6258b, type: 3}
+  - {fileID: 8300000, guid: ba939f6243e4d94458a8973ec52c49a1, type: 3}
   sounds:
   - clip: {fileID: 8300000, guid: cd2fd2a7496ccee44a30f694f689cf37, type: 3}
     name: Dash
@@ -895,7 +898,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - clip: {fileID: 8300000, guid: 2ebcdcc27413c944eb1f7338788b6163, type: 3}
     name: Button
-    volume: 0.319
+    volume: 0.126
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -918,6 +921,13 @@ MonoBehaviour:
     name: Locked
     volume: 1
     pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: dfd6bb511e3eb4341ade4d30de6ef344, type: 3}
+    name: Gong
+    volume: 0.457
+    pitch: 0.53
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}

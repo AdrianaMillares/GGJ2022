@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -52,7 +50,7 @@ public class BossHealthBar : MonoBehaviour
 
         if (actualLife <= 0)
         {
-            Instantiate(floorChange, GameObject.Find("BossRoom(Clone)").transform.position, Quaternion.identity);
+            Instantiate(floorChange, GameObject.FindGameObjectWithTag("BossRoom").transform.position, Quaternion.identity);
             for (int i = 0; i < GenerateRnd(); i++)
             {
                 Instantiate(lootDrop, transform.position, Quaternion.identity);

@@ -6,7 +6,7 @@ public class SpawnTeleport : MonoBehaviour
 {
     private Transform playerTransform;
     private Transform spawnPoint;
-    private CameraFollow cameraFollow;
+    //private CameraFollow cameraFollow;
     private Transform squiddy;
     public Animator anim;
 
@@ -14,9 +14,9 @@ public class SpawnTeleport : MonoBehaviour
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
-        spawnPoint = GameObject.Find("Entrada").GetComponent<Transform>();
+        spawnPoint = GameObject.FindGameObjectWithTag("Spawn").GetComponent<Transform>();
 
-        cameraFollow = GameObject.Find("CameraHolder").GetComponent<CameraFollow>();
+        //cameraFollow = GameObject.Find("CameraHolder").GetComponent<CameraFollow>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,10 +24,10 @@ public class SpawnTeleport : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             playerTransform.position = spawnPoint.position;
-            cameraFollow.minPosition.x = -14;
-            cameraFollow.minPosition.y = -21;
-            cameraFollow.maxPosition.x = 14;
-            cameraFollow.maxPosition.y = 21;
+            //cameraFollow.minPosition.x = -14;
+            //cameraFollow.minPosition.y = -21;
+            //cameraFollow.maxPosition.x = 14;
+            //cameraFollow.maxPosition.y = 21;
             anim.SetTrigger("FadeOut");
             Invoke(nameof(FadeOut), 1f);
 

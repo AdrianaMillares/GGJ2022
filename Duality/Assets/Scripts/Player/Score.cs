@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +14,7 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
+        ScoreNum = PlayerStats.ScoreNum;
         score.text = ScoreNum.ToString();
     }
 
@@ -23,7 +22,7 @@ public class Score : MonoBehaviour
     {
         if(collision.gameObject.tag == "Coin")
         {
-            ScoreNum++;
+            PlayerStats.ScoreNum++;
             FindObjectOfType<AudioManager>().Play("Coin");
             Destroy(collision.gameObject);
         }

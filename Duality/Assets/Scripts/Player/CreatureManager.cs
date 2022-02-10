@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreatureManager : MonoBehaviour
 {
@@ -23,11 +23,14 @@ public class CreatureManager : MonoBehaviour
 
     private bool InArea = false;
 
-    public SpriteRenderer melee;
+    public SpriteRenderer melee, mid;
 
     private Animator anim;
     public RuntimeAnimatorController animatorController;
     public AnimatorOverrideController animatorOverride;
+
+    public GameObject panel;
+    public Text text;
 
     private void Start()
     {
@@ -42,6 +45,9 @@ public class CreatureManager : MonoBehaviour
         creatureGloves.enabled = false;
 
         anim = GetComponent<Animator>();
+
+        melee.enabled = false;
+        mid.enabled = false;
     }
 
     public void Update()
@@ -56,16 +62,20 @@ public class CreatureManager : MonoBehaviour
         {
             creatureMelee.enabled = false;
             melee.GetComponent<Animator>().SetBool("Death", true);
-            melee.enabled = false;
+            Invoke(nameof(HideSprite), 1.2f);
         }
 
         if(PlayerStats.hasCreatureMid == true)
         {
             creatureMid.enabled = true;
+            mid.enabled = true;
+            mid.GetComponent<Animator>().SetBool("death", false);
         }
         else
         {
             creatureMid.enabled = false;
+            mid.GetComponent<Animator>().SetBool("death", true);
+            StartCoroutine(Hide());
         }
 
         if (PlayerStats.hasCreatureGloves == true)
@@ -79,8 +89,9 @@ public class CreatureManager : MonoBehaviour
             anim.runtimeAnimatorController = animatorController;
         }
 
-        if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 1)
+        if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 2)
         {
+            StartCoroutine(ShowPanel("Remember your actions..."));
             InArea = false;
             PlayerStats.hasCreatureShooter = true;
             PlayerStats.hasCreatureMelee = false;
@@ -88,8 +99,9 @@ public class CreatureManager : MonoBehaviour
             PlayerStats.hasCreatureGloves = false;
             Destroy(col.gameObject);
         }
-        else if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 2)
+        else if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 1)
         {
+            StartCoroutine(ShowPanel("You're not alone anymore..."));
             InArea = false;
             PlayerStats.hasCreatureMelee = true;
             PlayerStats.hasCreatureShooter = false;
@@ -99,6 +111,7 @@ public class CreatureManager : MonoBehaviour
         }
         else if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 3)
         {
+            StartCoroutine(ShowPanel("Remember who you left behind..."));
             InArea = false;
             PlayerStats.hasCreatureMid = true;
             PlayerStats.hasCreatureShooter = false;
@@ -108,6 +121,7 @@ public class CreatureManager : MonoBehaviour
         }
         else if (InArea && Input.GetKeyDown(KeyCode.E) && creatureIndex == 4)
         {
+            StartCoroutine(ShowPanel("Remember who you sacrificed..."));
             InArea = false;
             PlayerStats.hasCreatureGloves = true;
             PlayerStats.hasCreatureMid = false;
@@ -143,13 +157,13 @@ public class CreatureManager : MonoBehaviour
         {
             col = collider;
             InArea = true;
-            creatureIndex = 1;
+            creatureIndex = 2;
         }
         else if(collider.CompareTag("CreatureMelee"))
         {
             col = collider;
             InArea = true;
-            creatureIndex = 2;
+            creatureIndex = 1;
         }
         else if (collider.CompareTag("CreatureMid"))
         {
@@ -168,5 +182,26 @@ public class CreatureManager : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         InArea = false;
+    }
+
+    IEnumerator ShowPanel(string message)
+    {
+        FindObjectOfType<AudioManager>().Play("Gong");
+        panel.SetActive(true);
+        text.text = message;
+        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
+        panel.SetActive(false);
+    }
+
+    void HideSprite()
+    {
+        melee.enabled = false;
+    }
+
+    IEnumerator Hide()
+    {
+        yield return new WaitForSeconds(1f);
+        mid.enabled = false;
     }
 }
