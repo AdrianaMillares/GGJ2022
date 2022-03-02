@@ -12,6 +12,7 @@ public class EnemyLong : MonoBehaviour
     public Transform shootPoint;
     float distance;
     public float shootArea;
+    public float damage;
 
     void Start()
     {

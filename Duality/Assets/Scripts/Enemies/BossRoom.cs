@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Playables;
 
 public class BossRoom : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class BossRoom : MonoBehaviour
     private PlayerMovement player;
     private PlayerScript playerScript;
     public Animator anim;
+    private Canvas cutsceneCanvas;
+    private PlayableDirector director;
+    private float volume;
 
     private void Start()
     {
@@ -22,6 +26,8 @@ public class BossRoom : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>();
+
+        volume = AudioManager.instance.music.volume;
     }
 
     private void Update()
@@ -37,6 +43,7 @@ public class BossRoom : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             inArea = true;
+            FindObjectOfType<AudioManager>().Play("EnterBoss");
         }
     }
 
@@ -46,12 +53,14 @@ public class BossRoom : MonoBehaviour
         {
             //anim.SetTrigger("fade");
             PlayerMovement.instance.source.volume = 0f;
+            AudioManager.instance.music.volume = 0f;
             player.enabled = false;
             playerScript.enabled = false;
             image.sprite = images[0].sprite;
             canvas.SetActive(true);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(3.5f);
             PlayerMovement.instance.source.volume = 1f;
+            AudioManager.instance.music.volume = volume;
             player.enabled = true;
             playerScript.enabled = true;
             canvas.SetActive(false);
@@ -62,12 +71,14 @@ public class BossRoom : MonoBehaviour
         {
             //anim.SetTrigger("fade");
             PlayerMovement.instance.source.volume = 0f;
+            AudioManager.instance.music.volume = 0f;
             player.enabled = false;
             playerScript.enabled = false;
             image.sprite = images[1].sprite;
             canvas.SetActive(true);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(3.5f);
             PlayerMovement.instance.source.volume = 1f;
+            AudioManager.instance.music.volume = volume;
             playerScript.enabled = true;
             player.enabled = true;
             canvas.SetActive(false);
@@ -78,11 +89,13 @@ public class BossRoom : MonoBehaviour
         {
             //anim.SetTrigger("fade");
             PlayerMovement.instance.source.volume = 0f;
+            AudioManager.instance.music.volume = 0f;
             player.enabled = false;
             playerScript.enabled = false;
             image.sprite = images[2].sprite;
             canvas.SetActive(true);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(3.5f);
+            AudioManager.instance.music.volume = volume;
             PlayerMovement.instance.source.volume = 1f;
             playerScript.enabled = true;
             player.enabled = true;
@@ -92,16 +105,21 @@ public class BossRoom : MonoBehaviour
         }
         else if(PlayerStats.instance.bossIndex == 3)
         {
+            cutsceneCanvas = GameObject.FindGameObjectWithTag("Cutscene").GetComponent<Canvas>();
+            cutsceneCanvas.enabled = true;
+            director = cutsceneCanvas.GetComponent<PlayableDirector>();
+            director.Play();
             PlayerMovement.instance.source.volume = 0f;
+            AudioManager.instance.music.volume = 0f;
             player.enabled = false;
             playerScript.enabled = false;
-            cutscene = GameObject.Find("Cutscene").GetComponentInChildren<Canvas>().gameObject;
-            cutscene.SetActive(true);
-            yield return new WaitForSeconds(22f);
+            yield return new WaitForSeconds(21f);
+            cutsceneCanvas.enabled = false;
+            director.Stop();
             PlayerMovement.instance.source.volume = 1f;
+            AudioManager.instance.music.volume = volume;
             playerScript.enabled = true;
             player.enabled = true;
-            cutscene.SetActive(false);
             Instantiate(bossPrefab[PlayerStats.instance.bossIndex], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }

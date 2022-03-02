@@ -17,16 +17,27 @@ public class PlayerChest : MonoBehaviour
     private int chestPrice;
 
     public Animator anim;
+    public SpriteRenderer ekey;
 
     public PowerUpStruct[] PowerUpSet = new PowerUpStruct[3];
 
     private void Start()
     {
         InArea = false;
+        ekey.enabled = false;
     }
 
     void Update()
     {
+        if(InArea == true)
+        {
+            ekey.enabled = true;
+        }
+        else
+        {
+            ekey.enabled = false;
+        }
+
         if (InArea && Input.GetKeyDown(KeyCode.E) && (Score.ScoreNum >= chestPrice))
         {
             FindObjectOfType<AudioManager>().Play("Chest");

@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
         music.Play();
         isPlaying = true;
 
-        music.volume = 1f;
+        music.volume = 0.2f;
     }
 
     public void Awake()
@@ -73,32 +73,32 @@ public class AudioManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex != currentScene)
         {
             currentScene = SceneManager.GetActiveScene().buildIndex;
-            if ((currentScene == 0 || currentScene == 2 || currentScene == 4) && isPlaying == false)
+            if ((currentScene == 0) && isPlaying == false)
             {
                 music.clip = clips[0];
                 music.Play();
                 isPlaying = true;
 
             }
-            else if ((currentScene == 0 || currentScene == 2 || currentScene == 4) && isPlaying == true)
+            else if ((currentScene == 0) && isPlaying == true)
             {
                 music.clip = clips[0];
             }
-            else if(currentScene == 1)
+            else if(currentScene == 1 || currentScene == 4)
             {
                 isPlaying = false;
                 music.Stop();
                 music.clip = clips[1];
                 music.Play();
             }
-            else if (currentScene == 3)
+            else if (currentScene == 2)
             {
                 isPlaying = false;
                 music.Stop();
                 music.clip = clips[3];
                 music.Play();
             }
-            else if (currentScene == 5)
+            else if (currentScene == 3 || currentScene == 5)
             {
                 isPlaying = false;
                 music.Stop();

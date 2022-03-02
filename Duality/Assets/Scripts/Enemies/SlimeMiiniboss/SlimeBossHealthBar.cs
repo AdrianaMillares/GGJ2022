@@ -56,14 +56,14 @@ public class SlimeBossHealthBar : MonoBehaviour
 
         if (actualLife <= 0)
         {
-            //anim.SetTrigger("death");
+            anim.SetTrigger("death");
             Instantiate(floorChange, GameObject.FindGameObjectWithTag("BossRoom").transform.position, Quaternion.identity);
             for (int i = 0; i < GenerateRnd(); i++)
             {
                 Instantiate(lootDrop, transform.position, Quaternion.identity);
             }
             this.enabled = false;
-            Destroy(boss, 0.6f);
+            Destroy(boss, 1.7f);
         }
 
         if (actualLife <= criticalHealth)

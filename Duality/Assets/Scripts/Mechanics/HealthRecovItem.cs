@@ -6,7 +6,7 @@ public class HealthRecovItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            PlayerStats.actualLife += 15f;
+            PlayerStats.actualLife += 20f;
             FindObjectOfType<AudioManager>().Play("Item");
             if (PlayerStats.actualLife >= PlayerStats.maxLife)
             {

@@ -159,6 +159,18 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
         }
+        else if (col.gameObject.CompareTag("Boss2") && lifebar.invincible == false)
+        {
+            StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
+        }
+        else if (col.gameObject.CompareTag("Boss3") && lifebar.invincible == false)
+        {
+            StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
+        }
+        else if (col.gameObject.CompareTag("Boss4") && lifebar.invincible == false)
+        {
+            StartCoroutine(Knockback(knockbackDuration, knockbackPower, col.transform));
+        }
     }
 
     public IEnumerator Knockback(float knockbackDuration, float knockbackPower, Transform obj)

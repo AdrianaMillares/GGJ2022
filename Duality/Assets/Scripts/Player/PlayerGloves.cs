@@ -11,17 +11,17 @@ public class PlayerGloves : MonoBehaviour
     private float timeBtwAttacks;
     public float starTimeBtwAttacks;
 
-    //public Animator anim;
+    public Animator anim;
 
     void Update()
     {
-        attackDamage = PlayerStats.attackDamage;
+        attackDamage = PlayerStats.attackDamage + 2f;
 
         if (timeBtwAttacks <= 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Attack();
+                anim.SetTrigger("Attack");
                 timeBtwAttacks = starTimeBtwAttacks;
             }
         }
@@ -31,14 +31,12 @@ public class PlayerGloves : MonoBehaviour
         }
     }
 
-    void Attack()
+    public void AttackGloves()
     {
-        //anim.SetTrigger("Attack");
-
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         foreach (Collider2D enemy in enemiesToDamage)
         {
-            if (enemy.gameObject.tag == "Enemy")
+            if (enemy.gameObject.tag == "Enemy" || enemy.gameObject.tag == "Enemy2" || enemy.gameObject.tag == "Enemy3")
             {
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
                 StartCoroutine(Damage(enemy));
@@ -51,11 +49,12 @@ public class PlayerGloves : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Explosion");
                 }
             }
-            else if (enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3")
+            else if (enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3" || enemy.gameObject.tag == "Boss4")
             {
                 BossHealthBar.actualLife -= PlayerStats.attackDamage;
                 PanteraBossHealthBar.actualLife -= PlayerStats.attackDamage;
                 SlimeBossHealthBar.actualLife -= PlayerStats.attackDamage;
+                AmalgamBosHealthBar.actualLife -= PlayerStats.attackDamage;
                 StartCoroutine(Damage(enemy));
                 FindObjectOfType<AudioManager>().Play("EnemyDamage");
             }

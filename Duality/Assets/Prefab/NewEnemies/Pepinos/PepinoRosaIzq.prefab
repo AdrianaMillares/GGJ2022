@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8309482431521498923}
   m_Layer: 6
   m_Name: PepinoRosaIzq
-  m_TagString: Enemy
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,8 @@ MonoBehaviour:
     type: 3}
   anim: {fileID: 8309482431521498919}
   shootPoint: {fileID: 4417049601347529789}
-  shootArea: 11
+  shootArea: 20
+  damage: 5
 --- !u!114 &8309482431521498923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,5 +219,5 @@ MonoBehaviour:
   health: 15
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
     type: 3}
-  maxCoins: 3
-  minCoins: 1
+  maxCoins: 10
+  minCoins: 8

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7415340300765573029}
   m_Layer: 6
   m_Name: PepinoMoradoIzq
-  m_TagString: Enemy
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -3785939406141754279, guid: 7187f5fdf97ebc24aa0552c8c035e7ad,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -172,7 +172,8 @@ MonoBehaviour:
     type: 3}
   anim: {fileID: 7415340300765573033}
   shootPoint: {fileID: 2951302224001410227}
-  shootArea: 11
+  shootArea: 15
+  damage: 5
 --- !u!114 &7415340300765573029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +189,8 @@ MonoBehaviour:
   health: 15
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
     type: 3}
-  maxCoins: 3
-  minCoins: 1
+  maxCoins: 15
+  minCoins: 10
 --- !u!1 &9030595369501063707
 GameObject:
   m_ObjectHideFlags: 0

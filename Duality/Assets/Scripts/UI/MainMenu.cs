@@ -3,10 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public int EscenaPlay;
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void Play()
     {
-        PlayerStats.instance.bossIndex = 2;
+        PlayerStats.instance.bossIndex = 0;
         PlayerStats.movementSpeed = 8f;
         PlayerStats.attackDamage = 4.1f;
         PlayerStats.bulletDamage = 4.1f;
@@ -19,7 +23,7 @@ public class MainMenu : MonoBehaviour
         PlayerStats.hasCreatureGloves = false;
         PlayerStats.ScoreNum = 0;
 
-        SceneManager.LoadScene(EscenaPlay);
+        SceneManager.LoadScene("Room3");
         FindObjectOfType<AudioManager>().Play("Button");
     }
 

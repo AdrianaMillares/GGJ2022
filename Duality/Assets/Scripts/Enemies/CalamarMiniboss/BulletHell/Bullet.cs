@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        moveSpeed = 5f;
+        moveSpeed = 8f;
     }
 
     void Update()

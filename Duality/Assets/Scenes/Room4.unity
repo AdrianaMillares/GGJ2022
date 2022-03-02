@@ -175,7 +175,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 75
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -679,31 +679,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomRooms:
-  - {fileID: 238419320674687352, guid: f1fa5f6a8b4a4804bb30ba2fc0114d18, type: 3}
-  - {fileID: 1483289680114391896, guid: 2941719aa7ed25a47b2a0e380d0df4a6, type: 3}
-  - {fileID: 1704555886437830887, guid: 92cfc16c37505fd43b684c442050d030, type: 3}
-  - {fileID: 8638808289732966303, guid: 3d7832015648dfa4a97b8c1672b216c3, type: 3}
-  - {fileID: 4091774741835050579, guid: a33b07ae764d43749bb435fc03d29022, type: 3}
+  - {fileID: 8463704630280536199, guid: 8320b2479e37d084bb658bf056ceb013, type: 3}
+  - {fileID: 6390241852400166591, guid: eda86e95382ccc84e9ce50c63a0f666a, type: 3}
+  - {fileID: 8827007874662416217, guid: d290eb3e8bbc2a049af5db9a292059f1, type: 3}
+  - {fileID: 4489322646503368175, guid: 7bf80793b16618445ae6685d56e22fe0, type: 3}
+  - {fileID: 6854485037350796742, guid: c0571c8783d4db14483fd3aef06c3f90, type: 3}
   topRooms:
-  - {fileID: 7665752001021875818, guid: 74083f59850a1834797c1f64963c1d10, type: 3}
-  - {fileID: 8638808289732966303, guid: 3d7832015648dfa4a97b8c1672b216c3, type: 3}
-  - {fileID: 4091774741835050579, guid: a33b07ae764d43749bb435fc03d29022, type: 3}
-  - {fileID: 8982394662066122813, guid: 4c59f7d67da5ff2479a511109b496ef5, type: 3}
-  - {fileID: 519579336651555406, guid: a1e3c2da67b9ad94680fe746e3968bb8, type: 3}
-  - {fileID: 820171465754642550, guid: 53b7149eccbb407429d9eeb15524f73d, type: 3}
+  - {fileID: 5056223049088478792, guid: b0684e69c0e29914c8fd7cba2f6c0d39, type: 3}
+  - {fileID: 4489322646503368175, guid: 7bf80793b16618445ae6685d56e22fe0, type: 3}
+  - {fileID: 6854485037350796742, guid: c0571c8783d4db14483fd3aef06c3f90, type: 3}
+  - {fileID: 251607119750181427, guid: 01d547efba5088a40820192216adfb86, type: 3}
+  - {fileID: 3566329625254143848, guid: 3cba38bfad9f0aa488020893b92acec2, type: 3}
+  - {fileID: 8422664635563060795, guid: 3c26c363fe99a0142afa9ae6a0fec005, type: 3}
   leftRooms:
-  - {fileID: 1483289680114391896, guid: 2941719aa7ed25a47b2a0e380d0df4a6, type: 3}
-  - {fileID: 821735064292591632, guid: 5e374e5d8b662d6419062f9b2bb2e473, type: 3}
-  - {fileID: 5213529088020206281, guid: 14063c8aaa94b8c4a96e790643aff7cd, type: 3}
-  - {fileID: 3597043571224571669, guid: 4fff6e17a4929da49b3ba694cfda3f2c, type: 3}
-  - {fileID: 8982394662066122813, guid: 4c59f7d67da5ff2479a511109b496ef5, type: 3}
+  - {fileID: 6390241852400166591, guid: eda86e95382ccc84e9ce50c63a0f666a, type: 3}
+  - {fileID: 3101293428228708461, guid: 553989d997fae0e41bba888ef8d4a757, type: 3}
+  - {fileID: 5587697140938168443, guid: bba86e5456122eb42976794dc4db49d5, type: 3}
+  - {fileID: 8945088002461877227, guid: c478eb1fbb03a2445a755b8ccae6d4aa, type: 3}
+  - {fileID: 251607119750181427, guid: 01d547efba5088a40820192216adfb86, type: 3}
   rightRooms:
-  - {fileID: 1704555886437830887, guid: 92cfc16c37505fd43b684c442050d030, type: 3}
-  - {fileID: 21859275367213943, guid: 2a1e54ebbd5544949bc9755a07aef07d, type: 3}
-  - {fileID: 5213529088020206281, guid: 14063c8aaa94b8c4a96e790643aff7cd, type: 3}
-  - {fileID: 3597043571224571669, guid: 4fff6e17a4929da49b3ba694cfda3f2c, type: 3}
-  - {fileID: 519579336651555406, guid: a1e3c2da67b9ad94680fe746e3968bb8, type: 3}
-  - {fileID: 820171465754642550, guid: 53b7149eccbb407429d9eeb15524f73d, type: 3}
+  - {fileID: 8827007874662416217, guid: d290eb3e8bbc2a049af5db9a292059f1, type: 3}
+  - {fileID: 1941058108787113584, guid: 3abaefa6fe614d84db8072ca53651f0f, type: 3}
+  - {fileID: 5587697140938168443, guid: bba86e5456122eb42976794dc4db49d5, type: 3}
+  - {fileID: 8945088002461877227, guid: c478eb1fbb03a2445a755b8ccae6d4aa, type: 3}
+  - {fileID: 3566329625254143848, guid: 3cba38bfad9f0aa488020893b92acec2, type: 3}
+  - {fileID: 8422664635563060795, guid: 3c26c363fe99a0142afa9ae6a0fec005, type: 3}
   bossRoom:
   - {fileID: 7497399528268162837, guid: f5fdef24e5e7f4b4faff024067d4bebd, type: 3}
   - {fileID: 7497399528268162837, guid: f5fdef24e5e7f4b4faff024067d4bebd, type: 3}
@@ -1214,7 +1214,32 @@ PrefabInstance:
     - target: {fileID: 1081504840037653570, guid: b50987913773a354ba67733a25acd5e2,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081504840037653570, guid: b50987913773a354ba67733a25acd5e2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cutscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081504840037653575, guid: b50987913773a354ba67733a25acd5e2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081504840037653575, guid: b50987913773a354ba67733a25acd5e2,
+        type: 3}
+      propertyPath: m_InitialState
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081504840037653592, guid: b50987913773a354ba67733a25acd5e2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1081504840037653592, guid: b50987913773a354ba67733a25acd5e2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1081504840100036578, guid: b50987913773a354ba67733a25acd5e2,
         type: 3}

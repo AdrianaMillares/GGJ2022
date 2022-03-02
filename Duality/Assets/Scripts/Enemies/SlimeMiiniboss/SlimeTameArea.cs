@@ -12,6 +12,7 @@ public class SlimeTameArea : MonoBehaviour
     public GameObject floorChange;
 
     public SlimeBossHealthBar bossHealthBar;
+    private SpriteRenderer ekey;
 
     private void Start()
     {
@@ -20,17 +21,24 @@ public class SlimeTameArea : MonoBehaviour
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         movement.enabled = true;
+        ekey = GameObject.FindGameObjectWithTag("Ekey").GetComponent<SpriteRenderer>();
+        ekey.enabled = false;
     }
 
     public void Update()
     {
         if (inArea == true)
         {
+            ekey.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 movement.enabled = false;
                 choicePanel.SetActive(true);
             }
+        }
+        else
+        {
+            ekey.enabled = false;
         }
 
         if (bossHealthBar.inCriticalState == true)

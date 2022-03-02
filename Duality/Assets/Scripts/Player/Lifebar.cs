@@ -60,6 +60,12 @@ public class Lifebar : MonoBehaviour
             StartCoroutine(Damage());
             FindObjectOfType<AudioManager>().Play("Damage");
         }
+        else if (col.gameObject.tag == "Enemy3" && !invincible)
+        {
+            PlayerStats.actualLife -= col.gameObject.GetComponent<EnemyLong>().damage;
+            StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("Damage");
+        }
         else if(col.gameObject.tag == "Boss" && !invincible)
         {
             PlayerStats.actualLife -= col.gameObject.GetComponent<Miniboss>().damage;
@@ -78,13 +84,19 @@ public class Lifebar : MonoBehaviour
             StartCoroutine(Damage());
             FindObjectOfType<AudioManager>().Play("Damage");
         }
+        else if (col.gameObject.tag == "Boss4" && !invincible)
+        {
+            PlayerStats.actualLife -= col.gameObject.GetComponent<AmalgamBoss>().damage;
+            StartCoroutine(Damage());
+            FindObjectOfType<AudioManager>().Play("Damage");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet") && !invincible)
         {
-            PlayerStats.actualLife -= 1f;
+            PlayerStats.actualLife -= 4f;
             StartCoroutine(Damage());
             FindObjectOfType<AudioManager>().Play("Damage");
         }

@@ -74,7 +74,7 @@ public class PlayerShoot : MonoBehaviour
                 {
                 while(Vector2.Distance(anchorObj.transform.position, target.position) > maxDistance){
                     vel = speed;
-                    vel = vel + 1;
+                    vel = vel + 1f;
 
                     Vector3 temp = Vector3.MoveTowards(anchorObj.transform.position, target.position, vel * Time.deltaTime);
                     rb.MovePosition(temp);

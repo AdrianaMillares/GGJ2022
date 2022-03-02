@@ -17,7 +17,7 @@ public class PlayerMidAttack : MonoBehaviour
 
     private void Update()
     {
-        attackDamage = PlayerStats.attackDamage;
+        attackDamage = PlayerStats.attackDamage + 1f;
         direction.x = Input.GetAxis("ShootHorizontal");
         direction.y = Input.GetAxis("ShootVertical");
 
@@ -98,7 +98,7 @@ public class PlayerMidAttack : MonoBehaviour
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         foreach (Collider2D enemy in enemiesToDamage)
         {
-            if (enemy.gameObject.tag == "Enemy" || enemy.gameObject.tag == "Enemy2")
+            if (enemy.gameObject.tag == "Enemy" || enemy.gameObject.tag == "Enemy2" || enemy.gameObject.tag == "Enemy3")
             {
                 enemy.GetComponent<EnemyHealth>().TakeDamage(attackDamage);
                 StartCoroutine(Damage(enemy));
@@ -111,11 +111,12 @@ public class PlayerMidAttack : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("Explosion");
                 }
             }
-            else if (enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3")
+            else if (enemy.gameObject.tag == "Boss" || enemy.gameObject.tag == "Boss2" || enemy.gameObject.tag == "Boss3" || enemy.gameObject.tag == "Boss4")
             {
                 BossHealthBar.actualLife -= PlayerStats.attackDamage;
                 PanteraBossHealthBar.actualLife -= PlayerStats.attackDamage;
                 SlimeBossHealthBar.actualLife -= PlayerStats.attackDamage;
+                AmalgamBosHealthBar.actualLife -= PlayerStats.attackDamage;
                 StartCoroutine(Damage(enemy));
                 FindObjectOfType<AudioManager>().Play("EnemyDamage");
             }

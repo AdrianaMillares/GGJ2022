@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7309841355211956135}
   m_Layer: 6
   m_Name: PepinoRosaDer
-  m_TagString: Enemy
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +172,8 @@ MonoBehaviour:
     type: 3}
   anim: {fileID: 7309841355211956139}
   shootPoint: {fileID: 3129000021244499121}
-  shootArea: 11
+  shootArea: 20
+  damage: 5
 --- !u!114 &7309841355211956135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,8 +189,8 @@ MonoBehaviour:
   health: 15
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
     type: 3}
-  maxCoins: 3
-  minCoins: 1
+  maxCoins: 10
+  minCoins: 8
 --- !u!1 &9136202655876418073
 GameObject:
   m_ObjectHideFlags: 0

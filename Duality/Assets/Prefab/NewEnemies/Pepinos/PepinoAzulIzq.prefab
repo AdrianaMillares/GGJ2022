@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6582329449887941398}
   m_Layer: 6
   m_Name: PepinoAzulIzq
-  m_TagString: Enemy
+  m_TagString: Enemy3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 4837790041491416902, guid: da8824b3f5e519447bf926b752334785,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,7 +202,8 @@ MonoBehaviour:
     type: 3}
   anim: {fileID: 6582329449887941402}
   shootPoint: {fileID: 1532513367485335552}
-  shootArea: 11
+  shootArea: 15
+  damage: 5
 --- !u!114 &6582329449887941398
 MonoBehaviour:
   m_ObjectHideFlags: 0

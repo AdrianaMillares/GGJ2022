@@ -25,6 +25,10 @@ TagManager:
   - Spawn
   - Boss2
   - Boss3
+  - Cutscene
+  - Ekey
+  - Boss4
+  - Enemy3
   layers:
   - Default
   - TransparentFX

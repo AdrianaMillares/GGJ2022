@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -3609040260898249430, guid: 86386df9ea9b60c448c106ddc9c3aaf0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8669cbbdd039c4dafbd2055e41d986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  chaseArea: 8
+  speed: 2.5
+  chaseArea: 15
   damage: 8
   anim: {fileID: 5617803778879047552}
 --- !u!114 &5617803778879047556
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b9cb53d91d7eb4d93cf5f4cce69d60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  health: 8
   lootDrop: {fileID: 6764378508755694580, guid: 152eb7cb0a22c324db3594fdfae5ecd2,
     type: 3}
-  maxCoins: 3
-  minCoins: 1
+  maxCoins: 8
+  minCoins: 5

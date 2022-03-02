@@ -10,6 +10,7 @@ public class PanteraTameArea : MonoBehaviour
     public GameObject choicePanel;
     public GameObject axolotlItem;
     public GameObject floorChange;
+    private SpriteRenderer ekey;
 
     public PanteraBossHealthBar bossHealthBar;
 
@@ -20,17 +21,25 @@ public class PanteraTameArea : MonoBehaviour
         movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
 
         movement.enabled = true;
+
+        ekey = GameObject.FindGameObjectWithTag("Ekey").GetComponent<SpriteRenderer>();
+        ekey.enabled = false;
     }
 
     public void Update()
     {
         if (inArea == true)
         {
+            ekey.enabled = true;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 movement.enabled = false;
                 choicePanel.SetActive(true);
             }
+        }
+        else
+        {
+            ekey.enabled = false;
         }
 
         if (bossHealthBar.inCriticalState == true)
